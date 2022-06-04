@@ -1,24 +1,31 @@
 package karyawan;
 
-import interfaces.Penjualan;
+import interfaces.JumlahTerjual;
 
-public class Sales extends Karyawan implements Penjualan {
+public class Sales extends Karyawan implements JumlahTerjual {
     public static final int KOMISI_PER_PENJUALAN=10000;
-    private int penjualan;
+    private int jumlahTerjual;
 
     public Sales(String nama, String id){
         super(nama, id);
     }
 
-    public int getJumlahPenjualan(){
-        return penjualan;
+    public void setJumlahTerjual(int jumlahTerjual){
+        this.jumlahTerjual = jumlahTerjual;
+    }
+    public int getJumlahTerjual(){
+        return jumlahTerjual;
+    }
+
+    public void addJumlahTerjual(int jumlahTerjual){
+        this.jumlahTerjual += jumlahTerjual;
     }
 
     public int getBiaya(){
-        return (penjualan*KOMISI_PER_PENJUALAN)+gajiPokok;
+        return (jumlahTerjual *KOMISI_PER_PENJUALAN)+gajiPokok;
     }
 
     public void addPenjualan(int penjualan){
-        this.penjualan += penjualan;
+        this.jumlahTerjual += penjualan;
     }
 }
